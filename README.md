@@ -1,5 +1,9 @@
-# Recreating-native-weather-for-indoor-plants
-Project intended to create native weather for indoor plans by using openweathermap.org raspberypi 4
+  ```
+  Anusha Hegde
+  anuhegde@uw.edu
+  ```
+
+# Recreating native weather for indoor plants
 
 
 
@@ -9,7 +13,7 @@ The objective of the assignment 3 is to take the knowledge gained from assignmen
 
 ## Motivation
 
-After almost killing some my favorite plants when I was away from home for few weeks, I looked up few automatic water gardening system online. But I could not find any system that creates the whole weather pattern in the market. Instead of just automatic watering I decided give houseplants their native weather pattern. So I decided to build this project.
+After almost killing some my favorite plants when I was away from home for few weeks, I looked up few automatic water gardening system online. But I could not find any system that creates the whole weather pattern in the market. Instead of just automatic watering I decided give houseplants their native weather pattern by building this project.
 
 ## Requirements
 1. Raspberry pi 4b
@@ -17,12 +21,13 @@ After almost killing some my favorite plants when I was away from home for few w
 3. MCP3008 analog to digital converter
 4. Moisture sensor 
 5. DHT22 temperature and humditiy sensor
-6. DC motor
-7. Vinly tubes for watering
-8. Smart plug
-9. Humidifier
-10. Grow light
-11. Male to female, female to male, male to male jumper wires
+6. DC pump
+7. Relay
+8. Vinly tubes for watering
+9. Smart plug
+10. Humidifier
+11. Grow light
+12. Male to female, female to male, male to male jumper wires
 
 
 
@@ -43,7 +48,7 @@ Reasons why I chose DHT22 over DHT11
 1. Ultra-small size
 2. Extremely low power consumption, and with a signal transmission distance of more than 20 meters thus it’s able to withstand the most demanding applications.
 3. Humidity sensor of 0 to 99.9 %RH with ±2% accuracy while the temperature sensor ranges from -40 to 80℃ with ±0.5℃ accuracy.
-Since DHT22 has more accuracy rate with humidity I chose this over DHT11 sensor. Too high or low humidity can effect the sensitive plants. The DHT22 is a 3 pin sensor with VCC,GND and Data pin. I have used board library to get the data from DHT22 sensor. For that I had to install adafruit_dht python library. 
+Since DHT22 has more accuracy rate with humidity I chose this over DHT11 sensor. Too high or low humidity can effect the sensitive plants. The DHT22 is a 3 pin sensor with VCC,GND and Data pin. I have used board library to get the data from DHT22 sensor. For that I had to install adafruit_dht python library. <br/> 
 
 
 ### WebAPI 
@@ -106,7 +111,6 @@ Below data is the example JSON file result of the webAPI call. The data required
 The moisture sensor used is KY70. It has both analog and digital output. I was looking for a moisture sensor which has analog output and the one which can be adjusted according to the plant needs. Few plants does not need too much water and stays healthy in dry soil(like cactus family) and few of the plants needs constant moist soil(like ferns). So accuracy of the moisture sensor was high priority for me. This particular sensor offered everything I was looking for. For reading the analog output I have used MCP3008 analog to digital converter. The pin configuration of the MCP3008 is shown below.
 ![MCP3008 pin layout](./images/mcp3008.png)  <br/>
 
-The connections from MCP3008 to Raspberry pi as follows
 
 MCP3008 Pin 16(VDD) to Raspberry pi Pin 1(3.3V) <br/>
 MCP3008 Pin 15(VREF) to Raspberry pi Pin 1(3.3V) <br/>
@@ -142,7 +146,7 @@ The flow of the project starts with
 3. In the same JSON file sunrise, sunset and current time is given. Using that if it is day then turn on the grow light or turn off the grow light. 
 4. Sleep for 5mins and start again
 
-## Difficulties along the way
+## Hurdles along the way
 
 Few of the problems that might occur in the future is 
 
@@ -155,15 +159,19 @@ Few of the problems that might occur in the future is
 
 
 ## Conclusion and Future enhancement
-Since this is my first time taking embedded course and being new to coding this hands on project helped me a lot in understanding real time embedded systems. Even though at few time it was challenging to troubleshoot the problem it was really fun and I enjoyed working with raspberry pi and sensors.
+Since this is my first time taking embedded course and being new to coding this hands on project helped me a lot in understanding real time embedded systems. Even though at few time it was challenging to troubleshoot the problem it was really fun and I enjoyed working with raspberry pi and sensors. The cost of this project including raspberry pi is around $160.
 My future enhancements to the project includes 
 1. controlling the temperature using AC/heater. 
 2. Reproducing rain patterns by keeping the plants in a separate room and creating greenhouse kind of arrangement with sprinklers. This also helps with cleaning the plant leaves which increases photosyntensis. Changing brightness of the grow light depending on the time of the day.If cloudy then decreasing brightness if sunny full brigtness etc. 
 3. Creating dashboard to keep track and control the plant health. 
-With some more calibration and future work this project is 
 
 
-## Project reposito
+
+## Project repository
+https://github.com/anushamhegde/Recreating-native-weather-for-indoor-plants
+
+This repo also contains the demo and presentation that was created as part of the project.
+
 ## References
 
 1. https://gist.github.com/benrules2/6f490f3a0e082ae6592a630bd7abe588 
